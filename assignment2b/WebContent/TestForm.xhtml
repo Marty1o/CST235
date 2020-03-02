@@ -5,29 +5,25 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
-
-<title><ui:insert name="pageTitle">JSF Form Page</ui:insert></title>
-
+<title><ui:insert name="pageTitle">Form Page</ui:insert></title>
 </head>
 
 <body>
-	<center>
-
-		<h:form>
-		First Name:<h:inputText value="#{user.firstName}" />
-			<br />
-		Last Name:<h:inputText value="#{user.lastName}" />
-			<br />
-			<br />
-			<h:commandButton action="#{formController.onSubmit()}" value="Submit" />
-			<h:commandButton action="#{formController.onFlash()}" value="Flash" />
-		</h:form>
-
-	</center>
-
-
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+			<center>
+				<h:form>
+					First Name:<h:inputText value="#{user.firstName}" />
+					<br />
+					Last Name:<h:inputText value="#{user.lastName}" />
+					<br />
+					<br />
+					<h:commandButton action="#{formController.onSubmit()}"
+						value="Submit" />
+				</h:form>
+				<h:messages />
+			</center>
+		</ui:define>
+	</ui:composition>
 </body>
-
-
-
 </html>
