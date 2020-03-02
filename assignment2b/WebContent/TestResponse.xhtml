@@ -6,19 +6,45 @@
 
 <head>
 
-<title><ui:insert name="pageTitle">JSF Response Page wrong</ui:insert></title>
+<title><ui:insert name="pageTitle">JSF Response Page</ui:insert></title>
 
 </head>
 
 <body>
-	<center>
-		<h1>Response Page</h1>
-		<p>#{user.firstName}! You must be #{user.firstName}
-			#{user.lastName}!!</p>
-	</center>
+
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+
+			<center>
+				<p>#{user.firstName}! You must be #{user.firstName}
+					#{user.lastName}!!</p>
+				<h:commandButton onclick="window.history.back();" value="Go back" />
+
+				<h:dataTable value="#{orders.orders}" var="o"
+					styleClass="oder-table" headerClass="order-table-header"
+					rowClass="order-table-odd, order-table-even">
+					<h:column>
+						<f:facet name="header">Order Number</f:facet>
+						#{o.orderNo}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Product Name</f:facet>
+						#{o.productName}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Price</f:facet>
+						#{o.price}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Quantity</f:facet>
+						#{o.quantity}
+					</h:column>
+				</h:dataTable>
 
 
+
+			</center>
+		</ui:define>
+	</ui:composition>
 </body>
-
-
 </html>
