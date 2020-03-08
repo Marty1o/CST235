@@ -20,7 +20,7 @@
 					#{user.lastName}!!</p>
 				<h:commandButton onclick="window.history.back();" value="Go back" />
 
-				<h:dataTable value="#{orders.orders}" var="o"
+				<h:dataTable value="#{formController.service.orders}" var="o"
 					styleClass="oder-table" headerClass="order-table-header"
 					rowClass="order-table-odd, order-table-even">
 					<h:column>
